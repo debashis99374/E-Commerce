@@ -10,6 +10,9 @@ import AllProducts from "./routePages/allProduct";
 import Cooking from "./routePages/cooking";
 import Programming from "./routePages/programming";
 import Politics from "./routePages/politics";
+import Cart from "./routePages/cart";
+import Wishlist from "./routePages/wishlist";
+import ProductDetails from "./routePages/ProductDetails";
 
 
 function App() {
@@ -23,7 +26,11 @@ function App() {
      <Route path="/cooking"element={<Cooking/>}/>
      <Route path="/programming"element={<Programming/>}/>
      <Route path="/politics"element={<Politics/>}/>
+     <Route path="/cart"element={ <Cart/>}/>
+     <Route path="/wishlist"element={ <Wishlist/>}/>
+     <Route path="/product/:productId"element={ <ProductDetails/>}/>
      <Route path="/mockman"element={<Mockman/>}/> 
+     
       </Routes>
 
       <Footer/>

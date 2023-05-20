@@ -1,8 +1,10 @@
    import {useContext} from 'react'
    import { BookContext } from '../context/bookContext'
+   import {useNavigate,Link} from 'react-router-dom'
 
    export default function AllProducts(){
     const {data,dispatch}=useContext(BookContext)
+    const navigate=useNavigate()
     //initial array
     let filteredArr=data.allBooks
 //sort by price 
@@ -64,13 +66,24 @@ if(data.searchInput){
           min="0"
           step="1" onChange={(e)=>dispatch({type:"ratingSlider",payLoad:e.target.value})} /> {data.rating}
         {filteredArr.map(el=>(
-            <li style={{listStyle:"none"}}>
+            <li style={{listStyle:"none"}} key={el._id}>
                 <div className="container allP">
-                    <img src={el.image} width="100px"/>
-                    <h4>{el.title}</h4>
+                   <Link to={`/product/${el._id}`}> <img src={el.image} width="100px"/>
+                    <h4>{el.title}</h4></Link>
                     <p>Author -{el.author}</p>
                     <p>Price -{el.price}$</p>
                     <p>Ratings :- {el.ratings}</p>
+                    {el.isCart?(<>
+                    <button onClick={()=>navigate('/cart')} >Go To Cart</button>
+                    </>):(<>
+                    <button onClick={()=>dispatch({type:"addToCart",payLoad:el._id})}>Add To Cart</button>
+                    </>)}
+                    {el.isWishList?(<>
+                    <button onClick={()=>dispatch({type:"wishlistToggle",payLoad:el._id})}>added</button>
+                    </>):(<>
+                    <button onClick={()=>dispatch({type:"wishlistToggle",payLoad:el._id})}>add to wishlist</button>
+                    </>)}
+                    {el.id}
                 </div>
             </li>
         ))}
