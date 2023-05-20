@@ -1,9 +1,19 @@
-import {useContext} from 'react'
+import {useContext,useEffect,useState} from 'react'
 import { BookContext } from '../context/bookContext'
 import {useNavigate,Link} from 'react-router-dom'
 export default function Politics(){
-    const {data,dispatch}=useContext(BookContext)
+    const {data,dispatch,loading}=useContext(BookContext)
     const navigate=useNavigate()
+    const [renderDelayed,setRenderDelayed]=useState(false)
+    useEffect(()=>{
+        const timeout=setTimeout(()=>{
+            setRenderDelayed(true)
+        },2000)
+        return ()=>clearTimeout(timeout)
+    },[])
+    if(loading||!renderDelayed){
+        return <div>Loading...</div>
+    }
     //initial array
     let filteredArr=data.allBooks.filter(el=>el.category==="Politics")
 //sort by price 

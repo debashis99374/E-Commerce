@@ -18,6 +18,7 @@ import ProductDetails from "./routePages/ProductDetails";
 function App() {
   return (
     <div className="App">
+    
       <Header/>
      <Routes> 
      

@@ -1,10 +1,23 @@
-   import {useContext} from 'react'
+   import {useContext,useEffect,useState} from 'react'
    import { BookContext } from '../context/bookContext'
    import {useNavigate,Link} from 'react-router-dom'
 
    export default function AllProducts(){
-    const {data,dispatch}=useContext(BookContext)
+    const {data,dispatch,loading}=useContext(BookContext)
     const navigate=useNavigate()
+    const [renderDelayed, setRenderDelayed] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setRenderDelayed(true);
+    }, 2000);
+
+    return () => clearTimeout(timeout); 
+  }, []);
+
+  if (loading || !renderDelayed) {
+    return <div>Loading...</div>;
+  }
     //initial array
     let filteredArr=data.allBooks
 //sort by price 
@@ -50,7 +63,8 @@ if(data.searchInput){
 
     return(
         <>
-        <button onClick={clearFilterHandler}>Clear</button>
+       
+            <button onClick={clearFilterHandler}>Clear</button>
         <fieldset>
             <legend>Sort Price</legend>
             <input type="radio" value="l-h" name="sort" onChange={(e)=>dispatch({type:"sortPrice",payLoad:e.target.value})} /> Low-High
@@ -87,6 +101,8 @@ if(data.searchInput){
                 </div>
             </li>
         ))}
+        
+        
         </>
     )
    }

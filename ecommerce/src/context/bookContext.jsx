@@ -2,12 +2,14 @@ import {createContext,useState,useEffect,useReducer} from 'react'
 export const BookContext=createContext()
 
 export function BookProvider({ children }) {
+  const [loading,setLoading]=useState(true)
     
     const  fetchProductData=async()=> {
         try {
           const response = await fetch("/api/products");
           const dat = await response.json();
           dispatch({type:"initial",payLoad:dat.products})
+          setLoading(false)
         } catch (error) {
           console.error(error);
           
@@ -16,8 +18,10 @@ export function BookProvider({ children }) {
   
     useEffect(() => {
       
-  
-      fetchProductData();
+       
+          fetchProductData();
+       
+      
     }, []);
 
     const initialAcc={
@@ -148,7 +152,7 @@ export function BookProvider({ children }) {
     const [data,dispatch]=useReducer(reducerFun,initialAcc)
   
     return (
-      <BookContext.Provider value={{data,dispatch}}>
+      <BookContext.Provider value={{data,dispatch,loading}}>
         {children}
       </BookContext.Provider>
     );

@@ -1,9 +1,20 @@
-import {useContext} from 'react'
+import {useContext,useState,useEffect} from 'react'
 import { BookContext } from '../context/bookContext'
 import {useNavigate,Link} from 'react-router-dom'
 export default function Programming(){
-    const {data,dispatch}=useContext(BookContext)
+    const {data,dispatch,loading}=useContext(BookContext)
     const navigate=useNavigate()
+const [renderDelayed,setRenderDelayed]=useState(false)
+useEffect(()=>{
+    const timeout=setTimeout(()=>{
+        setRenderDelayed(true)
+    },2000)
+
+    return ()=>clearTimeout(timeout)
+},[])
+if(loading||!renderDelayed){
+    return <>Loading...</>
+}
     //initial array
     let filteredArr=data.allBooks.filter(el=>el.category==="Programming")
 //sort by price 
@@ -37,6 +48,7 @@ if(data.searchInput){
   }
     return (
         <>
+        
         <button onClick={clearFilterHandler}>Clear</button>
         <fieldset>
             <legend>Sort Price</legend>
