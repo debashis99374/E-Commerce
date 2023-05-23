@@ -8,13 +8,15 @@ const [renderDelayed,setRenderDelayed]=useState(false)
 useEffect(()=>{
     const timeout=setTimeout(()=>{
         setRenderDelayed(true)
-    },2000)
+    },1000)
 
     return ()=>clearTimeout(timeout)
 },[])
+
 if(loading||!renderDelayed){
-    return <>Loading...</>
+    return <div>Loading...</div>
 }
+
     //initial array
     let filteredArr=data.allBooks.filter(el=>el.category==="Programming")
 //sort by price 
@@ -48,8 +50,8 @@ if(data.searchInput){
   }
     return (
         <>
-        
-        <button onClick={clearFilterHandler}>Clear</button>
+       
+            <button onClick={clearFilterHandler}>Clear</button>
         <fieldset>
             <legend>Sort Price</legend>
             <input type="radio" value="l-h" name="sort" onChange={(e)=>dispatch({type:"sortPrice",payLoad:e.target.value})} /> Low-High
@@ -81,6 +83,8 @@ if(data.searchInput){
                 </div>
             </li>
         ))}
+        
+        
         </>
     )
 }

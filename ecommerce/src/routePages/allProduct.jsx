@@ -3,20 +3,20 @@
    import {useNavigate,Link} from 'react-router-dom'
 
    export default function AllProducts(){
-    const {data,dispatch,loading}=useContext(BookContext)
+    const {data,dispatch,loading,alertForCart,setAlertForCart,alertForWishList,setAlertForWishList}=useContext(BookContext)
     const navigate=useNavigate()
     const [renderDelayed, setRenderDelayed] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setRenderDelayed(true);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timeout); 
   }, []);
 
   if (loading || !renderDelayed) {
-    return <div>Loading...</div>;
+    return <iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
   }
     //initial array
     let filteredArr=data.allBooks
@@ -62,47 +62,80 @@ if(data.searchInput){
 
 
     return(
-        <>
-       
+        <div className='container-products'>
+       <div className="container-filters">
             <button onClick={clearFilterHandler}>Clear</button>
-        <fieldset>
-            <legend>Sort Price</legend>
-            <input type="radio" value="l-h" name="sort" onChange={(e)=>dispatch({type:"sortPrice",payLoad:e.target.value})} /> Low-High
+       
+            <div className="container-sort">
+              <legend>Sort By Price:-</legend>
+            <input type="radio" value="l-h" name="sort" onChange={(e)=>dispatch({type:"sortPrice",payLoad:e.target.value})} /> Low-High <br/>
             <input type="radio" value="h-l" name="sort" onChange={(e)=>dispatch({type:"sortPrice",payLoad:e.target.value})}/> High-Low
-        </fieldset>
-        ,<fieldset>
-            <legend>Filters:-</legend>
-            <input type='checkbox' value="cook" onChange={(e)=>dispatch({type:"filterCook",payLoad:e.target.checked})}/>Cooking
-            <input type='checkbox' value="programe" onChange={(e)=>dispatch({type:"filterPrograme",payLoad:e.target.checked})}/>Programming
-            <input type='checkbox' value="politics" onChange={(e)=>dispatch({type:"filterPolitics",payLoad:e.target.checked})}/>Politics
-        </fieldset>
+            </div>
+            <div className="container-filter">
+            <legend id='legend1'>Filters:-</legend>
+            <input type='checkbox' value="cook" onChange={(e)=>dispatch({type:"filterCook",payLoad:e.target.checked})}/>Cooking <br/>
+          <label id='programe-checkBox'>  <input type='checkbox' value="programe"  onChange={(e)=>dispatch({type:"filterPrograme",payLoad:e.target.checked})}/>Programming  </label> <br/>
+           <input type='checkbox' value="politics" onChange={(e)=>dispatch({type:"filterPolitics",payLoad:e.target.checked})}/>Politics <br/>
+            </div>
+          <div className="container-ratings">
+           <span id='rating'> Ratings:- </span> <br/>
         <input type="range" value={data.rating} max="5"
           min="0"
-          step="1" onChange={(e)=>dispatch({type:"ratingSlider",payLoad:e.target.value})} /> {data.rating}
+          step="1" onChange={(e)=>dispatch({type:"ratingSlider",payLoad:e.target.value})} /> {data.rating} </div></div>
+        <div className="container-procuct-page">
         {filteredArr.map(el=>(
             <li style={{listStyle:"none"}} key={el._id}>
-                <div className="container allP">
-                   <Link to={`/product/${el._id}`}> <img src={el.image} width="100px"/>
-                    <h4>{el.title}</h4></Link>
-                    <p>Author -{el.author}</p>
-                    <p>Price -{el.price}$</p>
-                    <p>Ratings :- {el.ratings}</p>
+
+             
+              
+                <div className="container-pCard">
+
+                  
+                   <Link to={`/product/${el._id}`}> <img src={el.image} width="100px" className='img-pCard'/>
+                   </Link>
+                   <Link to={`/product/${el._id}`}> <h4 className='pcard-h4'>{el.title}</h4></Link>
+                    <div className="container-pCard-s">
+                    <p>{el.author}</p>
+                    <p>{el.price}$</p>
+                    <p>{el.ratings}/5</p>
+                    </div>
+                    <div className="container-pCard-bttn">
                     {el.isCart?(<>
                     <button onClick={()=>navigate('/cart')} >Go To Cart</button>
                     </>):(<>
-                    <button onClick={()=>dispatch({type:"addToCart",payLoad:el._id})}>Add To Cart</button>
+                    <button onClick={()=>{dispatch({type:"addToCart",payLoad:el._id});setAlertForCart(true) ; setTimeout(() => {
+                      setAlertForCart(false)
+                    },1000);}}>Add To Cart</button>
                     </>)}
                     {el.isWishList?(<>
-                    <button onClick={()=>dispatch({type:"wishlistToggle",payLoad:el._id})}>added</button>
+                    <button onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id}); setAlertForWishList(true); setTimeout(()=>{
+                      setAlertForWishList(false)
+                    },1000)}}>added</button>
                     </>):(<>
-                    <button onClick={()=>dispatch({type:"wishlistToggle",payLoad:el._id})}>add to wishlist</button>
+                    <button onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id});setAlertForWishList(true); setTimeout(()=>{
+                      setAlertForWishList(false)
+                    },1000)}}>add to wishlist</button>
                     </>)}
-                    {el.id}
+                    </div>
+                    
                 </div>
+                
+                {alertForWishList?(<div className="sliding-alert">
+                  {el.isWishList?(<>Item Added to Cart</>):(<>Removed from cart</>)}
+
+                </div>):(<></>)}
             </li>
         ))}
+        {alertForCart && (
+  <div className="sliding-alert">
+    <p>Added to cart</p>
+  </div>
+)}
+
+        
+        </div>
         
         
-        </>
+        </div>
     )
    }

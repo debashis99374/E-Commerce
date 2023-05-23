@@ -1,4 +1,5 @@
 import {  Link } from "react-router-dom";
+import Footer from "../footer";
 export default function Home(){
     return(
         <>
@@ -7,9 +8,9 @@ export default function Home(){
 
         <div className="home-container s1">
           <h2>
-            Welcome To <span> Books Corner</span>
+            Welcome To <span> Books <span><span>C</span>orner</span></span>
           </h2>
-          <p>Choose from our Librery</p>
+          <p>Choose From Our Librery</p>
 
           <a href="/">
             <Link to="allProducts">
@@ -24,14 +25,14 @@ export default function Home(){
             There are 3 categories of books available in our website. Choose
             according to your taste
           </p>
-          <Link to='cooking' >
+          <Link to='/cooking' >
             <button>
               <h4>Cooking</h4>
             </button>
           </Link>
           <Link  to='/programming'>
             <button>
-              <h4>Programming</h4>
+              <h4 className="programming">Programming</h4>
             </button>
           </Link>
           <Link to='/politics'>
@@ -41,6 +42,7 @@ export default function Home(){
           </Link>
         </div>
       </div>
+      <Footer/>
       
         </>
     )

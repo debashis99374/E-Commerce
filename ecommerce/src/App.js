@@ -13,6 +13,9 @@ import Politics from "./routePages/politics";
 import Cart from "./routePages/cart";
 import Wishlist from "./routePages/wishlist";
 import ProductDetails from "./routePages/ProductDetails";
+import PaymentPage from "./routePages/paymentPage";
+import Login from "./routePages/loginPage";
+import { RequiresAuth } from "./components/requiresAuth";
 
 
 function App() {
@@ -27,14 +30,16 @@ function App() {
      <Route path="/cooking"element={<Cooking/>}/>
      <Route path="/programming"element={<Programming/>}/>
      <Route path="/politics"element={<Politics/>}/>
+     <Route path="/login"element={<Login/>}/>
      <Route path="/cart"element={ <Cart/>}/>
-     <Route path="/wishlist"element={ <Wishlist/>}/>
+     <Route path="/wishlist"element={<RequiresAuth> <Wishlist/></RequiresAuth>}/>
+     <Route path="/payment"element={<PaymentPage/>}/>
      <Route path="/product/:productId"element={ <ProductDetails/>}/>
      <Route path="/mockman"element={<Mockman/>}/> 
      
       </Routes>
 
-      <Footer/>
+      
       
     </div>
   );

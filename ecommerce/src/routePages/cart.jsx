@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { BookContext } from "../context/bookContext"
 import {Link} from "react-router-dom"
+import './cssFiles/cart.css'
 export default function Cart(){
     const {data,dispatch}=useContext(BookContext)
 
@@ -9,13 +10,13 @@ export default function Cart(){
     return(
         <>
         <h4>Items :- {data.addToCart.length}</h4>
-        <h4>Total Price :- {totalPrice}</h4>
+        <h4>Total Price :- {totalPrice}$</h4>
         
         {data.addToCart.map(el=>(
             <li>
                 <div className="container-cart">
                 <img src={el.image} width="200px"/>
-                <div className="container-count cart">
+                <div className="container-cart-count">
                     {el.qnty<=1?(<>
                     <button disabled>-</button>
                     </>):(<>
@@ -25,16 +26,17 @@ export default function Cart(){
                 </div>
                 
                 <h4>{el.title}</h4>
-                <p>Price:- {el.price*el.qnty}$ </p>
+                <p> {el.price*el.qnty}$ </p>
+                <div className="container-cart-bttn">
                 <button onClick={()=>dispatch({type:"removeFromCart",payLoad:el._id})}>Remove From Cart</button>
-                <button onClick={()=>dispatch({type:"moveToWishList",payLoad:el._id})}>Move To WishList</button>
+                <button onClick={()=>dispatch({type:"moveToWishList",payLoad:el._id})}>Move To WishList</button></div>
                 </div>
 
             </li>
         ))}
 
-        <Link to='/paymentPage'>
-        <button>Proceed To Payment</button>
+        <Link to='/payment'>
+        <button id="proceed-to-payment-bttn">Proceed To Payment</button>
         </Link>
 
         

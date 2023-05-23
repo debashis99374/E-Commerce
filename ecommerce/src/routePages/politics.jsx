@@ -8,7 +8,7 @@ export default function Politics(){
     useEffect(()=>{
         const timeout=setTimeout(()=>{
             setRenderDelayed(true)
-        },2000)
+        },1000)
         return ()=>clearTimeout(timeout)
     },[])
     if(loading||!renderDelayed){

@@ -3,6 +3,8 @@ export const BookContext=createContext()
 
 export function BookProvider({ children }) {
   const [loading,setLoading]=useState(true)
+  const [alertForCart,setAlertForCart]=useState(false)
+  const [alertForWishList,setAlertForWishList]=useState(false)
     
     const  fetchProductData=async()=> {
         try {
@@ -34,7 +36,8 @@ export function BookProvider({ children }) {
     filterPrograme:false,
     filterPolitics:false,
     rating:0,
-    count:1,
+    discount:"",
+    
     }
     const reducerFun=(state,action)=>{
       switch(action.type){
@@ -141,6 +144,15 @@ export function BookProvider({ children }) {
 
        return{...state,addToCart:copyOfAddToCart5}
 
+ //payment page
+   //discount
+   case "discount%":
+    return {...state,discount:action.payLoad}
+
+    //Alerts
+    
+   
+
     
       
                       default:
@@ -152,7 +164,7 @@ export function BookProvider({ children }) {
     const [data,dispatch]=useReducer(reducerFun,initialAcc)
   
     return (
-      <BookContext.Provider value={{data,dispatch,loading}}>
+      <BookContext.Provider value={{data,dispatch,loading,alertForCart,setAlertForCart,alertForWishList,setAlertForWishList}}>
         {children}
       </BookContext.Provider>
     );

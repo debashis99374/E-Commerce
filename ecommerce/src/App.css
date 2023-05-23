@@ -1,51 +1,320 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (min-width:1024px){
+  .App {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: rgb(255, 238, 238);
   }
+  /*list style*/
+  li{
+    list-style-type: none;
+  }
+  /*sliding alert*/
+  .sliding-alert {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 2cm;
+    height: 1cm;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /*Universal elements*/
+  iframe{
+    
+  position: relative;
+  top: 50px;
+  }
+  button {
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 3px 1px 10px gray;
+    font-weight: 700;
+    background-color:rgb(255, 133, 127);
+    color: wheat;
+  }
+  button:hover {
+    color: white;
+    cursor: pointer;
+  }
+  /*header Portion--------------*/
+  .header {
+    background-color: rgb(254, 45, 69);
+    display: flex;
+   
+    align-items: center;
+    box-sizing: border-box;
+    gap: 60px;
+    margin: -8px;
+    color: wheat;
+    height: 120px;
+  }
+  .header > h4 {
+    padding: 5px;
+    padding-left: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+  }
+  .header > h4 > span {
+    font-size: 40px;
+  }
+  .header-span1 {
+    font-size: 45px;
+    color: rgb(255, 133, 127);
+  }
+  nav {
+    position: relative;
+    left: 25cm;
+  }
+
+  .search-bar{
+    border: 1px solid #9A9A9A;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    width: 400px;
+    position: relative;
+    left: -20px;
+  }
+ 
+  
+  /*Footer portion*------------------------*/
+  .footer {
+    padding: 15px;
+    height: 90px;
+    margin: -8px;
+    margin-top: 35px;
+    background-color:rgb(254, 45, 69);
+    color: wheat;
+  }
+  .footer > ol {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    left: 17cm;
+  }
+  .footer > ol > li {
+    list-style-type: none;
+  }
+
+  /*Home page - section-------------------*/
+/*Home page - Picture-section-------------------*/
+.home-container {
+  margin: 30px 10px 0px 10px;
+}
+img {
+  width: 90%;
+  height: 350px;
+  box-shadow: 2px 5px 10px gray;
+}
+.home-container .s1 {
+  position: relative;
+  top: -250px;
+  left: -12cm;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgb(248, 240, 225);
+  font-size: 20px;
+}
+.home-container .s1>h2{
+  position: relative;
+  left: 30px;
+}
+.home-container .s1>h2>span>span{
+font-size: 50px;
+}
+.home-container .s1>h2>span>span>span{
+  color: rgb(255, 133, 127);
+  }
+.home-container .s1 > p {
+  position: relative;
+  left: -70px;
+}
+.home-container .s1 .bttn {
+  position: relative;
+  top: -10px;
+  left: -125px;
+}
+.home-container .s1 > h2 > span {
+  color: wheat;
+  font-style: italic;
+}
+/*Home page - Middle- section-------------------*/
+.home-container2 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-top: -190px;
+  align-items: center;
+  gap: 40px;
+}
+.home-container2 > h2 {
+font-size: 30px;
+color: #9A9A9A;
+text-shadow: 1px 2px 2px gray;
+}
+.home-container2 > p {
+  color: rgb(76, 75, 75);
+  padding: 10px;
+  margin: -2px 0px 15px 0px;
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
+
+.home-container2 >a > button {
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%;
+  padding: 40px;
+  background-color:rgb(217, 74, 67);
+  text-shadow: 2px 3px 2px rgb(236, 47, 37) ;
+}
+.home-container2 >a > button>.programming{
+position: relative;
+left: -15px;
+}
+
+/*product card,filters----------------------------------------------*/
+.container-products{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.container-filters{
+  width: 7cm;
+  background-color: rgb(255, 214, 224);
+  margin: 20px 5px 0px 5px;
+  padding: 5px;
+ 
+}
+.container-sort{
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  left: -30px;
+  margin: 10px 0px 10px 0px;
+  line-height: 30px;
+  
+}
+.container-filter{
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  left: -35px;
+  margin: 10px 0px 10px 0px;
+  line-height: 30px;
+}
+#programe-checkBox{
+  position: relative;
+  left: 20px;
+}
+#legend1{
+  position: relative;
+  left: -18px;
+}
+.container-ratings{
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  left: -5px;
+  margin: 10px 0px 10px 0px;
+  line-height: 30px;
+}
+#rating{
+  position: relative;
+  left: -40px;
+}
+.container-filters >button{
+  position: relative;
+  left: 80px;
+  top: 10px;
+}
+/*product Card*/
+
+.container-pCard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  width: 7cm;
+  height: 10cm;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.img-pCard {
+  width: 100%;
+  max-height: 60%;
+  object-fit: cover;
+  position: relative;
+  top: 10px;
+  
+}
+
+.pcard-h4 {
+  margin-bottom: 10px;
+  position: relative;
+  top: -145px;
+}
+
+
+.container-pCard-s> p:nth-child(1) {
+  color: #696969;
+  position: relative;
+  top: -160px;
+  right: -5px;
+  font-size: small;
+  font-weight: 700;
+  
+}
+
+.container-pCard-s> p:nth-child(2){
+  font-size: larger;
+  font-weight: 700;
+  color: green;
+  position: relative;
+  right: 0cm;
+  bottom: 4.5cm;
+} 
+.container-pCard-s> p:nth-child(3){
+  position: relative;
+  top: -12.5cm;
+  right: -2.9cm;
+  background-color: green;
   color: white;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+/*bttns---------------------*/
+.container-pCard-bttn{
+  position: relative;
+  top: -7cm;
+
 }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
 
-.brand-title span {
-  color: #ffde59;
-}
 
-.brand-description {
-  font-size: 1.4rem;
-}
 
-.links {
-  display: flex;
-}
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+
+
+
+/*end of @media for desktop and bigger screens-----------------------*/  
 }

@@ -9,7 +9,7 @@ export default function Cooking(){
     useEffect(() => {
       const timeout = setTimeout(() => {
         setRenderDelayed(true);
-      }, 2000);
+      }, 1000);
   
       return () => clearTimeout(timeout); 
     }, []);

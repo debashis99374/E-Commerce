@@ -12,15 +12,18 @@ export default function Header(){
       }
   },[data.searchInput])
     return(
-        <>
-        <h4>Books <span>Corner</span></h4>
+        <div className='header'>
+        <h4>Books <span ><span className="header-span1">C</span>orner</span></h4>
         <nav>
 <NavLink to='/'>Home ||</NavLink>
 <NavLink to='/wishlist'>WishList ||</NavLink>
 <NavLink to='/cart'>Cart ||</NavLink>
 <NavLink>Profile ||</NavLink>
         </nav>
+        
         <input type="search" name='search' className='search-bar' value={data.searchInput} onChange={(e)=>dispatch({type:"searchInput",payLoad:e.target.value})} placeholder='search' />
-        </>
+        
+        
+        </div>
     )
 }
