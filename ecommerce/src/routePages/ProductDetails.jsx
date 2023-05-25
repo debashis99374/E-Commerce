@@ -1,12 +1,24 @@
 import {useParams,useNavigate} from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext,useEffect,useState } from 'react'
 import { BookContext } from '../context/bookContext'
 import './cssFiles/pDetails.css';
 
+import { AiOutlineHeart,AiFillHeart } from "react-icons/ai";
+
 export default function ProductDetails(){
     const {productId}=useParams()
-    const {data,dispatch}=useContext(BookContext)
+    const {data,dispatch,loading,alertForCart,setAlertForCart,alertForWishList,setAlertForWishList}=useContext(BookContext)
     const navigate=useNavigate()
+    const [delayedrender,setDelayedrender]=useState(false)
+    useEffect(()=>{
+        const timer=setTimeout(()=>{
+            setDelayedrender(true)
+        },1000)
+        return ()=>clearTimeout(timer)
+    },[])
+    if(loading&&!delayedrender){
+        return <iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    }
 
     const obj=data.allBooks.find(el=>el._id===productId)
     console.log(obj)
@@ -25,14 +37,29 @@ export default function ProductDetails(){
          {obj.isCart?(<>
           <button onClick={()=>navigate('/cart')} >Go To Cart</button>
          </>):(<>
-          <button onClick={()=>dispatch({type:"addToCart",payLoad:obj._id})}>Add To Cart</button>
+          <button onClick={()=>{dispatch({type:"addToCart",payLoad:obj._id}); setAlertForCart(true); setTimeout(()=>{setAlertForCart(false)},1000)}}>Add To Cart</button>
          </>)}
+         <div className="container-wishlist-icon-pDetails">
          {obj.isWishList?(<>
-                    <button onClick={()=>dispatch({type:"wishlistToggle",payLoad:obj._id})}>added</button>
+                    <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:obj._id}); setAlertForWishList(true); setTimeout(()=>{
+                      setAlertForWishList(false)
+                    },1000)}}><span className='wishlist-bttn added'><AiFillHeart/></span></span>
                     </>):(<>
-                    <button onClick={()=>dispatch({type:"wishlistToggle",payLoad:obj._id})}>add to wishlist</button>
-                    </>)}
+                    <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:obj._id});setAlertForWishList(true); setTimeout(()=>{
+                      setAlertForWishList(false)
+                    },1000)}}><span className='wishlist-bttn  '><AiOutlineHeart/></span></span>
+                    </>)
+                   
+                    }
+                    </div>
+                   {alertForWishList?(<div className="sliding-alert">
+                  {obj.isWishList?(<>Item Added to Wishlist</>):(<>Removed from Wishlist</>)}
+
+                </div>):(<></>)}
+                {alertForCart?(<div className='sliding-alert'>Added To Cart</div>):(<></>)}
+                  
        </div>)}
+      
     
         </>
     )

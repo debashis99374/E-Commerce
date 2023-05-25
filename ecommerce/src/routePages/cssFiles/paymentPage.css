@@ -1,0 +1,40 @@
+@media screen and (min-width:1024px){
+  .payment-page{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    
+  }
+  .payment-container {
+        width: 5cm;
+        height: 9cm;
+        background-color: rgb(227, 225, 225);
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 2cm;
+        margin-left: 15cm;
+        margin-bottom: 2cm;
+        
+        
+      }
+      
+      .container-discount {
+        margin-bottom: 10px;
+      }
+      
+      .coupon-options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .coupon-options label {
+        margin-bottom: 5px;
+      }
+      
+      .payment-container p {
+        white-space: normal;
+        word-wrap: break-word;
+        
+      }
+}

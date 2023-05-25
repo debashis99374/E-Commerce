@@ -81,6 +81,27 @@
     position: relative;
     left: 25cm;
   }
+ .NavLink{
+  margin: 10px;
+  font-size: 25px;
+  color: wheat;
+ }
+ .NavLink:hover{
+  
+  
+  color:  rgb(255, 133, 127);
+ }
+ .badge {
+  position: absolute;
+ top: -10px;
+ 
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 50%;
+}
+
 
   .search-bar{
     border: 1px solid #9A9A9A;
@@ -90,6 +111,7 @@
     position: relative;
     left: -20px;
   }
+  
  
   
   /*Footer portion*------------------------*/
@@ -103,12 +125,17 @@
   }
   .footer > ol {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     position: relative;
     left: 17cm;
   }
-  .footer > ol > li {
+  .footer > ol > li>a {
     list-style-type: none;
+    font-size: 27px;
+    color: wheat;
+  }
+  .footer > ol > li>a:hover{
+    color: rgb(255, 133, 127);
   }
 
   /*Home page - section-------------------*/
@@ -303,14 +330,19 @@ left: -15px;
 }
 
 /*bttns---------------------*/
-.container-pCard-bttn{
-  position: relative;
-  top: -7cm;
-
+/*addto wishlist bttns---*/
+.wishlist-bttn{
+  cursor: pointer;
+  font-size: 25px;
+  color: rgb(253, 156, 169);
 }
-
-
-
+.wishlist-bttn .added{
+  cursor: pointer;
+  font-size: 25px;
+  color: rgb(224, 61, 83);
+  
+  
+}
 
 
 

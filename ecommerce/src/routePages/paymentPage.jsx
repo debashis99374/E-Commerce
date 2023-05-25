@@ -1,5 +1,6 @@
 import {useState,useEffect,useContext} from "react"
 import { BookContext } from "../context/bookContext"
+import './cssFiles/paymentPage.css'
 
 export default function PaymentPage(){
     const {data,dispatch,loading}=useContext(BookContext)
@@ -27,18 +28,31 @@ else if(data.discount==="50%"){
 
    
     return(
-        <div>
-            <h2>Payment Page</h2>
-<div className="container-discount">
-    <h4>Apply Coupons</h4>
-           <input type="radio" value="5%" name="dis" onChange={(e)=>dispatch({type:"discount%",payLoad:e.target.value})}/> 5% <br/>
-           <input type="radio" value="15%" name="dis" onChange={(e)=>dispatch({type:"discount%",payLoad:e.target.value})}/>15% <br/>
-           <input type="radio" value="50%" name="dis" onChange={(e)=>dispatch({type:"discount%",payLoad:e.target.value})}/>Lut Lo
-            </div>
-            <p>Cart value: {preFinalPrice}$</p>
-             {data.addToCart.length>=1?(<p>Delivery charges:- 49$</p>):(<></>)}
-           {data.discount==="5%"?(<p>5% coupon applied</p>):data.discount==="15%"?(<p>15% coupon applied</p>):data.discount==="50%"?(<p>Lut Lo coupon applied</p>):(<></>)}
-           <p>Total:- {finalPrice}$</p>
+      <div className="payment-page">
+      <h2>Payment Page</h2>
+        <div class="payment-container">
+        
+        <div class="container-discount">
+          <h4>Apply Coupons</h4>
+          <div class="coupon-options">
+            <label>
+              <input type="radio" value="5%" name="dis" onChange={(e) => dispatch({type: 'discount%', payLoad: e.target.value})} />
+              5%
+            </label>
+            <label>
+              <input type="radio" value="15%" name="dis" onChange={(e) => dispatch({type: 'discount%', payLoad: e.target.value})} />
+              15%
+            </label>
+            <label>
+              <input type="radio" value="50%" name="dis" onChange={(e) => dispatch({type: 'discount%', payLoad: e.target.value})}/>
+              Lut Lo
+            </label>
+          </div>
         </div>
-    )
+        <p>Cart value: {preFinalPrice}$</p>
+        {data.addToCart.length >= 1 ? (<p>Delivery charges: - 49$</p>) : (<></>)}
+        {data.discount === "5%" ? (<p>5% coupon applied</p>) : data.discount === "15%" ? (<p>15% coupon applied</p>) : data.discount === "50%" ? (<p>Lut Lo coupon applied</p>) : (<></>)}
+        <p>Total: - {finalPrice}$</p>
+      </div>
+      </div>)
 }

@@ -17,8 +17,9 @@ ReactDOM.render(
     <Router>
      
     <BookProvider>
-    
+    <AuthProvider>
     <App />
+    </AuthProvider>
     
     </BookProvider>
    

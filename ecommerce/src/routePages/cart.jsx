@@ -9,7 +9,8 @@ export default function Cart(){
     
     return(
         <>
-        <h4>Items :- {data.addToCart.length}</h4>
+        {data.addToCart.length<=0?(<h1>Add Something...</h1>):(<>
+            <h4>Items :- {data.addToCart.length}</h4>
         <h4>Total Price :- {totalPrice}$</h4>
         
         {data.addToCart.map(el=>(
@@ -38,6 +39,8 @@ export default function Cart(){
         <Link to='/payment'>
         <button id="proceed-to-payment-bttn">Proceed To Payment</button>
         </Link>
+        </>)}
+        
 
         
         </>

@@ -37,5 +37,12 @@ margin-bottom: 10px;
     .pdetails-container>button{
         margin: 0px 0px 0px 5px;
     }
+    .container-wishlist-icon-pDetails{
+        position: relative;
+        right: -7cm;
+        top: -13cm;
+        
+        
+    }
 
 }

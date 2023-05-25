@@ -2,6 +2,8 @@
    import { BookContext } from '../context/bookContext'
    import {useNavigate,Link} from 'react-router-dom'
 
+   import { AiOutlineHeart,AiFillHeart } from "react-icons/ai";
+
    export default function AllProducts(){
     const {data,dispatch,loading,alertForCart,setAlertForCart,alertForWishList,setAlertForWishList}=useContext(BookContext)
     const navigate=useNavigate()
@@ -108,20 +110,20 @@ if(data.searchInput){
                     },1000);}}>Add To Cart</button>
                     </>)}
                     {el.isWishList?(<>
-                    <button onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id}); setAlertForWishList(true); setTimeout(()=>{
+                    <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id}); setAlertForWishList(true); setTimeout(()=>{
                       setAlertForWishList(false)
-                    },1000)}}>added</button>
+                    },1000)}}><span className='wishlist-bttn added'><AiFillHeart/></span></span>
                     </>):(<>
-                    <button onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id});setAlertForWishList(true); setTimeout(()=>{
+                    <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id});setAlertForWishList(true); setTimeout(()=>{
                       setAlertForWishList(false)
-                    },1000)}}>add to wishlist</button>
+                    },1000)}}><span className='wishlist-bttn  '><AiOutlineHeart/></span></span>
                     </>)}
                     </div>
                     
                 </div>
                 
                 {alertForWishList?(<div className="sliding-alert">
-                  {el.isWishList?(<>Item Added to Cart</>):(<>Removed from cart</>)}
+                  {el.isWishList?(<>Item Added to Wishlist</>):(<>Removed from Wishlist</>)}
 
                 </div>):(<></>)}
             </li>
