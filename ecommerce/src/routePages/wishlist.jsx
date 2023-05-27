@@ -6,6 +6,7 @@ import './cssFiles/wishlist.css'
 export default function Wishlist(){
     const {data,dispatch}=useContext(BookContext)
     const filteredArr=data.allBooks.filter(el=>el.isWishList)
+    const filterArrforCart=data.allBooks.filter(el=>el.isCart)
     return(
         <>
         {filteredArr.length<=0?(<h1>Add Something...</h1>):(<>
@@ -16,7 +17,9 @@ export default function Wishlist(){
             <p> {el.price}$</p>
             <div className="container-wishlist-bttn">
             <button onClick={()=>dispatch({type:"wishlistToggle",payLoad:el._id})}>Remove From wishlist</button>
-            <button onClick={()=>dispatch({type:"moveToCart",payLoad:el._id})}>Add To Cart</button>
+            {filterArrforCart.includes(el)?(<button onClick={()=>dispatch({type:"moveToCart",payLoad:el._id})}>Cart++</button>):(<button onClick={()=>dispatch({type:"addToCart",payLoad:el._id})}>Add To Cart</button>)}
+            
+            
             </div>
             </div></li>
         ))}

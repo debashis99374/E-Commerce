@@ -12,7 +12,7 @@
         padding: 15px;
         border-radius: 5px;
         margin-top: 2cm;
-        margin-left: 15cm;
+        margin-left: 22cm;
         margin-bottom: 2cm;
         
         
@@ -36,5 +36,10 @@
         white-space: normal;
         word-wrap: break-word;
         
+        
+      }
+      .discount-text{
+        color: green;
+
       }
 }

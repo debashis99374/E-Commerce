@@ -5,6 +5,10 @@ import './cssFiles/pDetails.css';
 
 import { AiOutlineHeart,AiFillHeart } from "react-icons/ai";
 
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function ProductDetails(){
     const {productId}=useParams()
     const {data,dispatch,loading,alertForCart,setAlertForCart,alertForWishList,setAlertForWishList}=useContext(BookContext)
@@ -37,21 +41,21 @@ export default function ProductDetails(){
          {obj.isCart?(<>
           <button onClick={()=>navigate('/cart')} >Go To Cart</button>
          </>):(<>
-          <button onClick={()=>{dispatch({type:"addToCart",payLoad:obj._id}); setAlertForCart(true); setTimeout(()=>{setAlertForCart(false)},1000)}}>Add To Cart</button>
+          <button onClick={()=>{dispatch({type:"addToCart",payLoad:obj._id}); setAlertForCart(true); setTimeout(()=>{setAlertForCart(false)},1000); }}>Add To Cart</button>
          </>)}
-         <div className="container-wishlist-icon-pDetails">
+         
          {obj.isWishList?(<>
                     <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:obj._id}); setAlertForWishList(true); setTimeout(()=>{
                       setAlertForWishList(false)
-                    },1000)}}><span className='wishlist-bttn added'><AiFillHeart/></span></span>
+                    },1000)}}><span className='wishlist-bttn added heartBttn-wishlist'><AiFillHeart/></span></span>
                     </>):(<>
                     <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:obj._id});setAlertForWishList(true); setTimeout(()=>{
                       setAlertForWishList(false)
-                    },1000)}}><span className='wishlist-bttn  '><AiOutlineHeart/></span></span>
+                    },1000)}}><span className='wishlist-bttn heartBttn-wishlist  '><AiOutlineHeart/></span></span>
                     </>)
                    
                     }
-                    </div>
+                    
                    {alertForWishList?(<div className="sliding-alert">
                   {obj.isWishList?(<>Item Added to Wishlist</>):(<>Removed from Wishlist</>)}
 
@@ -60,7 +64,7 @@ export default function ProductDetails(){
                   
        </div>)}
       
-    
+      
         </>
     )
 }

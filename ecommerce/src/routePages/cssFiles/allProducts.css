@@ -1,0 +1,72 @@
+@media screen and (min-width:1024px){
+   .container-procuct-page{
+    display: flex;
+    flex-wrap: wrap;
+   }
+    .container-pCard{
+        
+        background-color:rgb(245, 238, 240);
+        margin: 20px 5px 5px 5px ;
+        padding: 10px;
+        height: 10cm;
+        width: 8cm;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px 1px gray;
+    }
+    .img-pCard{
+        width: 70%;
+        height: 60%;
+    
+    }
+    .pcard-h4 {
+        margin-bottom: 10px;
+        position: relative;
+        top: -14px;
+        font-size: 18px;
+      }
+      .container-pCard-s> p:nth-child(1) {
+        color: #696969;
+        position: relative;
+        top: -16px;
+        right: -5px;
+        font-size: small;
+        font-weight: 700;
+        
+      }
+      .container-pCard-s> p:nth-child(2){
+        font-size: larger;
+        font-weight: 700;
+        color: green;
+        position: relative;
+        top: -15px;
+        
+      } 
+      .container-pCard-s> p:nth-child(3){
+        font-size: larger;
+        font-weight: 700;
+        color:wheat;
+        background-color: green;
+        display: inline;
+        padding: 3px;
+        border-radius: 100%;
+        position: relative;
+        right: 140px;
+        bottom: 9.5cm;
+       
+      } 
+
+      
+  .heartBttn{
+    position: relative;
+    right: -3.5cm;
+    top: -11cm;
+    font-size: 30px;
+    
+  }
+  .pCard-bttn-cart{
+   position: relative;
+   top: -19px;
+   width: 100%;
+  }
+
+}

@@ -1,11 +1,12 @@
 @media screen and (min-width:1024px){
     .pdetails-container{
-        background-color: rgb(251, 242, 251);
+        background-color: rgb(245, 238, 240);
         width: 15cm;
         height: 15cm;
         margin: auto;
         margin-top: 20px;
         box-shadow: 1px 2px 2px  gray;
+        border-radius: 10px;
     }
     .pdetails-container>img{
         width: 50%;
@@ -35,12 +36,15 @@ margin: auto;
 margin-bottom: 10px;
     }  
     .pdetails-container>button{
-        margin: 0px 0px 0px 5px;
+        margin: 0px 0px 0px 30px;
+        width: 70%;
+        height: 45px;
     }
-    .container-wishlist-icon-pDetails{
+    .heartBttn-wishlist{
         position: relative;
-        right: -7cm;
-        top: -13cm;
+        right: -0.5cm;
+        top: -12cm;
+        font-size: 40px;
         
         
     }

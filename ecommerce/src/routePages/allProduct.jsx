@@ -4,6 +4,10 @@
 
    import { AiOutlineHeart,AiFillHeart } from "react-icons/ai";
 
+   
+
+   import "./cssFiles/allProducts.css"
+
    export default function AllProducts(){
     const {data,dispatch,loading,alertForCart,setAlertForCart,alertForWishList,setAlertForWishList}=useContext(BookContext)
     const navigate=useNavigate()
@@ -89,8 +93,10 @@ if(data.searchInput){
             <li style={{listStyle:"none"}} key={el._id}>
 
              
-              
+
                 <div className="container-pCard">
+
+                 
 
                   
                    <Link to={`/product/${el._id}`}> <img src={el.image} width="100px" className='img-pCard'/>
@@ -101,26 +107,30 @@ if(data.searchInput){
                     <p>{el.price}$</p>
                     <p>{el.ratings}/5</p>
                     </div>
-                    <div className="container-pCard-bttn">
+                    <div className="pCard-bttn-cart">
                     {el.isCart?(<>
-                    <button onClick={()=>navigate('/cart')} >Go To Cart</button>
+                    <button className="pCard-bttn-cart" onClick={()=>navigate('/cart')} >Go To Cart</button>
                     </>):(<>
-                    <button onClick={()=>{dispatch({type:"addToCart",payLoad:el._id});setAlertForCart(true) ; setTimeout(() => {
+                    <button className="pCard-bttn-cart" onClick={()=>{dispatch({type:"addToCart",payLoad:el._id});setAlertForCart(true) ; setTimeout(() => {
                       setAlertForCart(false)
                     },1000);}}>Add To Cart</button>
                     </>)}
+                    </div>
+                    
                     {el.isWishList?(<>
                     <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id}); setAlertForWishList(true); setTimeout(()=>{
                       setAlertForWishList(false)
-                    },1000)}}><span className='wishlist-bttn added'><AiFillHeart/></span></span>
+                    },1000)}}><span className='wishlist-bttn added heartBttn'><AiFillHeart/></span></span>
                     </>):(<>
                     <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id});setAlertForWishList(true); setTimeout(()=>{
                       setAlertForWishList(false)
-                    },1000)}}><span className='wishlist-bttn  '><AiOutlineHeart/></span></span>
+                    },1000)}}><span className='wishlist-bttn  heartBttn  '><AiOutlineHeart/></span></span>
                     </>)}
+                    
+                    
                     </div>
                     
-                </div>
+                
                 
                 {alertForWishList?(<div className="sliding-alert">
                   {el.isWishList?(<>Item Added to Wishlist</>):(<>Removed from Wishlist</>)}

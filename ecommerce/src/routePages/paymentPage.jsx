@@ -14,8 +14,9 @@ export default function PaymentPage(){
     if(loading||!renderDelayed){
         return <>Loading...</>
     }
-    const preFinalPrice=data.addToCart.reduce((a,b)=>(a+b.price*b.qnty),0)
-    let finalPrice=data.addToCart.length>=1?preFinalPrice+49:0
+    const filterArr=data.allBooks.filter(el=>el.isCart===true)
+    const preFinalPrice=filterArr.reduce((a,b)=>(a+b.price*b.qnty),0)
+    let finalPrice=filterArr.length>=1?preFinalPrice+49:0
 if(data.discount==="5%"){
     finalPrice=finalPrice-(finalPrice*5)/100
 }
@@ -50,8 +51,8 @@ else if(data.discount==="50%"){
           </div>
         </div>
         <p>Cart value: {preFinalPrice}$</p>
-        {data.addToCart.length >= 1 ? (<p>Delivery charges: - 49$</p>) : (<></>)}
-        {data.discount === "5%" ? (<p>5% coupon applied</p>) : data.discount === "15%" ? (<p>15% coupon applied</p>) : data.discount === "50%" ? (<p>Lut Lo coupon applied</p>) : (<></>)}
+        {filterArr.length >= 1 ? (<p>Delivery charges: - 49$</p>) : (<></>)}
+        {data.discount === "5%" ? (<p className="discount-text">5% coupon applied</p>) : data.discount === "15%" ? (<p className="discount-text">15% coupon applied</p>) : data.discount === "50%" ? (<p className="discount-text">Lut Lo coupon applied</p>) : (<></>)}
         <p>Total: - {finalPrice}$</p>
       </div>
       </div>)

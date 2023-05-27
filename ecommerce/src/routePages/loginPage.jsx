@@ -12,6 +12,29 @@ export default function Login(){
   };
     return(
         <div>
+         <h2>Authentication Form</h2>
+      <form >
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+        
+          
+          required
+        /><br/><br/>
+
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          
+          
+          required
+        /><br/><br/>
+
+        <input type="submit" value="Login" />
+      </form>
+
             <button onClick={handleLogin}>{isLoggedIn ? "Logout" : "Login"}</button>
         </div>
     )

@@ -2,18 +2,21 @@ import { useContext } from "react"
 import { BookContext } from "../context/bookContext"
 import {Link} from "react-router-dom"
 import './cssFiles/cart.css'
+
+
 export default function Cart(){
     const {data,dispatch}=useContext(BookContext)
+    const filterArr=data.allBooks.filter(el=>el.isCart===true)
 
-    const totalPrice=data.addToCart.reduce((a,b)=>(a+b.price*b.qnty),0)
+   const totalPrice=filterArr.reduce((a,b)=>(a+b.price*b.qnty),0)
     
     return(
         <>
-        {data.addToCart.length<=0?(<h1>Add Something...</h1>):(<>
-            <h4>Items :- {data.addToCart.length}</h4>
+        {filterArr.length<=0?(<h1>Add Something...</h1>):(<>
+            <h4>Items :- {filterArr.length}</h4>
         <h4>Total Price :- {totalPrice}$</h4>
         
-        {data.addToCart.map(el=>(
+        {filterArr.map(el=>(
             <li>
                 <div className="container-cart">
                 <img src={el.image} width="200px"/>
@@ -29,7 +32,7 @@ export default function Cart(){
                 <h4>{el.title}</h4>
                 <p> {el.price*el.qnty}$ </p>
                 <div className="container-cart-bttn">
-                <button onClick={()=>dispatch({type:"removeFromCart",payLoad:el._id})}>Remove From Cart</button>
+                <button onClick={()=>{dispatch({type:"removeFromCart",payLoad:el._id});}}>Remove From Cart</button>
                 <button onClick={()=>dispatch({type:"moveToWishList",payLoad:el._id})}>Move To WishList</button></div>
                 </div>
 
