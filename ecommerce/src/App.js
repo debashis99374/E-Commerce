@@ -41,14 +41,16 @@ function App() {
      <Route path="/politics"element={<Politics/>}/>
      <Route path="/login"element={<Login/>}/>
      <Route path="/signup"element={<SignUp/>}/>
-     <Route path="/cart"element={ <Cart/>}/>
-     <Route path="/wishlist"element={<RequiresAuth> <Wishlist/></RequiresAuth>}/>
+    
      <Route path="/payment"element={<PaymentPage/>}/>
      <Route path="/product/:productId"element={ <ProductDetails/>}/>
      <Route path="/address"element={<Address/>}/>
      <Route path="/orderSuccesPage"element={<Final />}/>
-     <Route path="/Profile"element={<Profilepage/>}/>
+     
      <Route path="/mockman"element={<Mockman/>}/> 
+     <Route path="/cart"element={<RequiresAuth><Cart/></RequiresAuth>}/>
+     <Route path="/wishlist"element={<RequiresAuth> <Wishlist/></RequiresAuth>}/>
+     <Route path="/Profile"element={<RequiresAuth><Profilepage/></RequiresAuth>}/>
      
       </Routes>
       

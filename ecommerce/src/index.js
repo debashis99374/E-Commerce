@@ -7,7 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import { BookContext,BookProvider } from "./context/bookContext";
 import { AuthContext,AuthProvider } from "./context/authContext";
 
-// Call make Server
+
 makeServer();
 export {BookContext};
 export {AuthContext}
@@ -24,6 +24,6 @@ ReactDOM.render(
     </BookProvider>
    
     </Router>
-  ,
-  document.getElementById("root")
+  
+  ,document.getElementById("root")
 );
