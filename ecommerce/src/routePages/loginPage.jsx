@@ -1,23 +1,40 @@
-import { useLocation,useNavigate } from "react-router-dom"
-import {useState,useContext} from 'react'
-import { AuthContext } from "../context/authContext"
+import { useLocation,useNavigate ,NavLink} from "react-router-dom"
+import {useState,useContext,useEffect} from 'react'
+import { useAuth } from "../context/authContext";
 
 export default function Login(){
-    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { loginHandler, token } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const handleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
-    navigate(location?.state?.from?.pathname);
+  const [password,setPassword]=useState("")
+  const [email,setEmail]=useState("")
+ 
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if(password.length < 8){
+      alert("Password Have atleast 8 Characters");
+    }
+    else{
+      loginHandler(email,password);
+    }
+  
+
   };
+  useEffect(() => {
+    if (token) {
+      navigate(location?.state?.from.pathname || "/", { replace: true });
+    }
+  }, [token, navigate, location?.state?.from.pathname]);
     return(
         <div>
-         <h2>Authentication Form</h2>
-      <form >
-        <label htmlFor="username">Username:</label>
+         <h2>Log In </h2>
+      <form onSubmit={handleLogin} >
+        <label htmlFor="username">Email:</label>
         <input
           type="text"
           id="username"
+          value={email}
+          onChange={(e)=>setEmail(e.target.value)}
         
           
           required
@@ -27,15 +44,19 @@ export default function Login(){
         <input
           type="password"
           id="password"
+          value={password}
+          onChange={(e)=>setPassword(e.target.value)}
           
           
           required
         /><br/><br/>
+        <p>Don't have an account? <NavLink to='/signup'>SignUp</NavLink></p>
 
-        <input type="submit" value="Login" />
+       <button  type="submit">LogIn</button>
+      
       </form>
 
-            <button onClick={handleLogin}>{isLoggedIn ? "Logout" : "Login"}</button>
+            
         </div>
     )
 }

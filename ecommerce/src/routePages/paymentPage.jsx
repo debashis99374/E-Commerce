@@ -1,10 +1,12 @@
 import {useState,useEffect,useContext} from "react"
 import { BookContext } from "../context/bookContext"
 import './cssFiles/paymentPage.css'
+import { useNavigate } from "react-router-dom"
 
 export default function PaymentPage(){
     const {data,dispatch,loading}=useContext(BookContext)
     const [renderDelayed,setRenderDelayed]=useState(false)
+    const navigate=useNavigate()
     useEffect(()=>{
         const timeout=setTimeout(()=>{
         setRenderDelayed(true)
@@ -12,7 +14,7 @@ export default function PaymentPage(){
         return ()=>clearTimeout(timeout)
     })
     if(loading||!renderDelayed){
-        return <>Loading...</>
+        return <><iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></>
     }
     const filterArr=data.allBooks.filter(el=>el.isCart===true)
     const preFinalPrice=filterArr.reduce((a,b)=>(a+b.price*b.qnty),0)
@@ -55,5 +57,16 @@ else if(data.discount==="50%"){
         {data.discount === "5%" ? (<p className="discount-text">5% coupon applied</p>) : data.discount === "15%" ? (<p className="discount-text">15% coupon applied</p>) : data.discount === "50%" ? (<p className="discount-text">Lut Lo coupon applied</p>) : (<></>)}
         <p>Total: - {finalPrice}$</p>
       </div>
+
+      <div id="container-address-paymentPage">
+
+        {data.addresses.map(el=>(
+          <li>
+            <input type="radio" name="selectAddress"/>{el.zip},{el.street},{el.city},{el.state}
+          </li>
+        ))}
+
+      </div>
+      ,<button id="order-bttn" onClick={()=>navigate("/orderSuccesPage")}>Order</button>
       </div>)
 }

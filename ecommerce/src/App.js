@@ -17,10 +17,19 @@ import PaymentPage from "./routePages/paymentPage";
 import Login from "./routePages/loginPage";
 import { RequiresAuth } from "./components/requiresAuth";
 
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import SignUp from "./routePages/signup";
+import Address from "./routePages/addressComponent";
+import Profilepage from "./routePages/profilePage";
+import Final from "./routePages/finalPage";
+
 
 function App() {
   return (
     <div className="App">
+       
+      
     
       <Header/>
      <Routes> 
@@ -31,15 +40,20 @@ function App() {
      <Route path="/programming"element={<Programming/>}/>
      <Route path="/politics"element={<Politics/>}/>
      <Route path="/login"element={<Login/>}/>
+     <Route path="/signup"element={<SignUp/>}/>
      <Route path="/cart"element={ <Cart/>}/>
      <Route path="/wishlist"element={<RequiresAuth> <Wishlist/></RequiresAuth>}/>
      <Route path="/payment"element={<PaymentPage/>}/>
      <Route path="/product/:productId"element={ <ProductDetails/>}/>
+     <Route path="/address"element={<Address/>}/>
+     <Route path="/orderSuccesPage"element={<Final />}/>
+     <Route path="/Profile"element={<Profilepage/>}/>
      <Route path="/mockman"element={<Mockman/>}/> 
      
       </Routes>
-
       
+
+      <ToastContainer/>
       
     </div>
   );

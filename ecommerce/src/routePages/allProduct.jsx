@@ -53,22 +53,16 @@ if(data.searchInput){
   const clearFilterHandler=()=>{
     dispatch({ type: 'clearAllFilters' });
 
-    const checkboxes = Array.from(document.querySelectorAll('input[type=checkbox]'));
-  const radioButtons = Array.from(document.querySelectorAll('input[type=radio]'));
-
-  checkboxes.reduce((_, el) => {
-    el.checked = false;
-  }, null);
-
-  radioButtons.reduce((_, el) => {
-    el.checked = false;
-  }, null);
+   const reset=document.getElementById("reset-filters")
+   reset.reset()
   }
 
 
 
     return(
-        <div className='container-products'>
+     
+        <div  className='container-products'>
+          <form id='"reset-filters"'>
        <div className="container-filters">
             <button onClick={clearFilterHandler}>Clear</button>
        
@@ -87,7 +81,7 @@ if(data.searchInput){
            <span id='rating'> Ratings:- </span> <br/>
         <input type="range" value={data.rating} max="5"
           min="0"
-          step="1" onChange={(e)=>dispatch({type:"ratingSlider",payLoad:e.target.value})} /> {data.rating} </div></div>
+          step="1" onChange={(e)=>dispatch({type:"ratingSlider",payLoad:e.target.value})} /> {data.rating} </div></div></form>
         <div className="container-procuct-page">
         {filteredArr.map(el=>(
             <li style={{listStyle:"none"}} key={el._id}>
@@ -95,6 +89,7 @@ if(data.searchInput){
              
 
                 <div className="container-pCard">
+                  {console.log(el)}
 
                  
 
@@ -118,7 +113,7 @@ if(data.searchInput){
                     </div>
                     
                     {el.isWishList?(<>
-                    <span onClick={()=>{dispatch({type:"wishlistToggle",payLoad:el._id}); setAlertForWishList(true); setTimeout(()=>{
+                    <span onClick={()=>{setTimeout(()=>{dispatch({type:"wishlistToggle",payLoad:el._id})},10); setAlertForWishList(true); setTimeout(()=>{
                       setAlertForWishList(false)
                     },1000)}}><span className='wishlist-bttn added heartBttn'><AiFillHeart/></span></span>
                     </>):(<>
@@ -133,7 +128,7 @@ if(data.searchInput){
                 
                 
                 {alertForWishList?(<div className="sliding-alert">
-                  {el.isWishList?(<>Item Added to Wishlist</>):(<>Removed from Wishlist</>)}
+                  {el.isWishList?("Item Added to Wishlist"):("Removed from Wishlist")}
 
                 </div>):(<></>)}
             </li>

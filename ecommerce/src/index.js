@@ -13,7 +13,7 @@ export {BookContext};
 export {AuthContext}
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Router>
      
     <BookProvider>
@@ -24,6 +24,6 @@ ReactDOM.render(
     </BookProvider>
    
     </Router>
-  </React.StrictMode>,
+  ,
   document.getElementById("root")
 );

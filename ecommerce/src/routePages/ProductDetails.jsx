@@ -5,25 +5,22 @@ import './cssFiles/pDetails.css';
 
 import { AiOutlineHeart,AiFillHeart } from "react-icons/ai";
 
-import { ToastContainer, toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function ProductDetails(){
     const {productId}=useParams()
     const {data,dispatch,loading,alertForCart,setAlertForCart,alertForWishList,setAlertForWishList}=useContext(BookContext)
     const navigate=useNavigate()
-    const [delayedrender,setDelayedrender]=useState(false)
+    const [renderDelayed,setRenderDelayed]=useState(false)
     useEffect(()=>{
-        const timer=setTimeout(()=>{
-            setDelayedrender(true)
+        const timeout=setTimeout(()=>{
+        setRenderDelayed(true)
         },1000)
-        return ()=>clearTimeout(timer)
-    },[])
-    if(loading&&!delayedrender){
-        return <iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        return ()=>clearTimeout(timeout)
+    })
+    if(loading||!renderDelayed){
+        return <><iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></>
     }
-
     const obj=data.allBooks.find(el=>el._id===productId)
     console.log(obj)
     

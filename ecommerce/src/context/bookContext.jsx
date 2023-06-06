@@ -35,6 +35,9 @@ export function BookProvider({ children }) {
     filterPolitics:false,
     rating:0,
     discount:"",
+    addresses:[
+      {state:"Orissa",city:"puri",street:"Manikarnika sahi",zip:752001}
+    ]
     
     }
     const reducerFun=(state,action)=>{
@@ -144,6 +147,11 @@ export function BookProvider({ children }) {
     return {...state,discount:action.payLoad}
 
     //Alerts
+
+  // Add Address  
+
+  case "addAddress":
+    return{...state,addresses:[...state.addresses,action.payLoad]}
     
    
 
