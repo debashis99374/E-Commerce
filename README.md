@@ -1,6 +1,11 @@
 # E-Commerce
  its a e-commerce app about books
  
+ 
+ Live Website Link-https://bookscorner-debashis.netlify.app/
+ 
+ Website Video Demo- https://www.loom.com/share/08d943bdf23345cd8df7773070f469af
+ 
  It takes Data from Backend called MockBee
  
  this website contains pages like HomePage,CartPage,WishListpage,ProductDetailsPage,CheckOutpage
