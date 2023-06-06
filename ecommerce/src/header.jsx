@@ -20,7 +20,7 @@ useEffect(()=>{
 },[data.searchInput])
   return(
       <div className='header'>
-      <h4>Books <span ><span className="header-span1">H</span>orner</span></h4>
+      <h4>Books <span ><span className="header-span1">C</span>orner</span></h4>
       
       <nav >
        
