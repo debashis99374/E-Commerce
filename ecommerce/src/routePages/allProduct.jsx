@@ -62,8 +62,8 @@ if(data.searchInput){
     return(
      
         <div  className='container-products'>
-          <form id='"reset-filters"'>
-       <div className="container-filters">
+          <form id="reset-filters" className="container-filters">
+       <div >
             <button onClick={clearFilterHandler}>Clear</button>
        
             <div className="container-sort">

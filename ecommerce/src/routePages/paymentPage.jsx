@@ -62,11 +62,13 @@ else if(data.discount==="50%"){
 
         {data.addresses.map(el=>(
           <li>
+            <div className="container-address-paymentPage-s1">
             <input type="radio" name="selectAddress"/>{el.zip},{el.street},{el.city},{el.state}
+            </div>
           </li>
         ))}
 
       </div>
-      ,<button id="order-bttn" onClick={()=>navigate("/orderSuccesPage")}>Order</button>
+      <button id="order-bttn" onClick={()=>navigate("/orderSuccesPage")}>Order</button>
       </div>)
 }

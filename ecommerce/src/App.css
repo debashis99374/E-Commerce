@@ -261,13 +261,13 @@ left: -15px;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  left: -35px;
+  left: -30px;
   margin: 10px 0px 10px 0px;
   line-height: 30px;
 }
 #programe-checkBox{
   position: relative;
-  left: 20px;
+  left: 35px;
 }
 #legend1{
   position: relative;
@@ -720,12 +720,12 @@ left: -15px;
     font-size: 25px;
   }
   .header-span1 {
-    font-size: 35px;
+    font-size: 30px;
     color: rgb(255, 133, 127);
   }
   nav {
     position: relative;
-    right: -210px;
+    right: -290px;
   
   }
  .NavLink{
@@ -753,7 +753,7 @@ left: -15px;
   position: relative;
   display: flex;
   align-items: center;
-  right: 200px;
+  right: 100px;
 }
 
 .search-icon {
@@ -780,7 +780,7 @@ left: -15px;
   /*Footer portion*------------------------*/
   .footer {
     padding: 15px;
-    height: 70px;
+    height: 50px;
     margin: -8px;
     margin-top: 35px;
     background-color:rgb(254, 45, 69);
@@ -790,7 +790,7 @@ left: -15px;
     display: flex;
     gap: 15px;
     position: relative;
-    left: 4cm;
+    left: 1.8cm;
   }
   .footer > ol > li>a {
     list-style-type: none;
@@ -814,7 +814,7 @@ img {
 .home-container .s1 {
   position: relative;
   top: -230px;
-  left: -1.5cm;
+  left: -0cm;
   font-weight: 700;
   line-height: 20px;
   color: rgb(248, 240, 225);
@@ -883,14 +883,15 @@ left: -15px;
 /*product card,filters----------------------------------------------*/
 .container-products{
   display: flex;
+  flex-direction: column;
   
   
   gap: 0px;
 }
 .container-filters{
-  width: 5cm;
+  width: 90%;
   background-color: rgb(255, 214, 224);
-  margin: 20px 5px 0px 5px;
+  margin: 20px 5px 10px 5px;
   padding: 5px;
   border-radius: 10px;
  

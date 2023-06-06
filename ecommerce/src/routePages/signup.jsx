@@ -42,7 +42,7 @@ export default function SignUp(){
         <h1>Sign Up</h1>
         <form
           action=""
-          className="auth-form d-flex"
+          className="login-signup-container"
           onSubmit={signupFormHandler}
         >
           <div className="detail-inp-box">

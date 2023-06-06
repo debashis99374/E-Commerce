@@ -1,6 +1,7 @@
 import { useLocation,useNavigate ,NavLink} from "react-router-dom"
 import {useState,useContext,useEffect} from 'react'
 import { useAuth } from "../context/authContext";
+import './cssFiles/loginSingup.css'
 
 export default function Login(){
   const { loginHandler, token } = useAuth();
@@ -26,9 +27,9 @@ export default function Login(){
     }
   }, [token, navigate, location?.state?.from.pathname]);
     return(
-        <div>
-         <h2>Log In </h2>
-      <form onSubmit={handleLogin} >
+        <div >
+         <h1>Log In</h1>
+      <form onSubmit={handleLogin}  className="login-signup-container">
         <label htmlFor="username">Email:</label>
         <input
           type="text"

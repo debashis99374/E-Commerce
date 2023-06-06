@@ -1,6 +1,7 @@
 import {useContext,useState} from "react"
 import { BookContext } from '../context/bookContext'
 import {  toast } from 'react-toastify';
+import './cssFiles/addressComponent.css'
 
 export default function Address(){
     const {data,dispatch}=useContext(BookContext)
@@ -36,25 +37,25 @@ export default function Address(){
             <form id="address-form"  onSubmit={handleSubmit}>
                 <label>
                     STATE:
-                    <input type="text" name="state" onChange={handleChange} />
+                    <input type="text" className="input-address" placeholder="abcd"name="state" onChange={handleChange} />
                 </label>
                 <br/>
                 <label>
                     CITY:
-                    <input type="text" name="city" onChange={handleChange}/>
+                    <input type="text" name="city" placeholder="abcd"  className="input-address" onChange={handleChange}/>
                 </label>
                 <br/>
                 <label>
                     STREET:
-                    <input type="text" name="street" onChange={handleChange}/>
+                    <input type="text" name="street"  placeholder="abcd" className="input-address" onChange={handleChange}/>
                 </label>
                 <br/>
                 <label>
                     ZIP:
-                    <input type="number" name="zip" onChange={handleChange}/>
+                    <input type="number" name="zip" placeholder="123456"  className="input-address" onChange={handleChange}/>
                 </label>
                 <br/>
-                <button type="submit">Submit</button>
+                <button type="submit" id="address-bttn">Submit</button>
             </form>
 
            

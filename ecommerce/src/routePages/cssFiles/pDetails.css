@@ -103,3 +103,58 @@ font-size: 15px;
         
     }
 }
+/*end of design for tablet---------------------------------------------------------*/
+@media screen and (min-width: 0px) and (max-width: 763px){
+    .pdetails-container{
+        background-color: rgb(245, 238, 240);
+        width: 7cm;
+        height: 11cm;
+        margin: auto;
+        margin-top: 20px;
+        box-shadow: 1px 2px 2px  gray;
+        border-radius: 10px;
+    }
+    .pdetails-container>img{
+        width: 50%;
+        height: 50%;
+        margin-top: 10px;
+    }
+    .pdetails-container>h4{
+        color: grey;
+        font-size: large;
+        margin-top: 10px;
+    }
+    .pdetails-container-s>p:nth-child(1){
+        color: rgb(72, 71, 71);
+        margin: -15px;
+        font-weight: 500;
+        font-size: 10px;
+    }
+    .pdetails-container-s>p:nth-child(2){
+color: green;
+font-size: large;
+font-weight: 600;
+margin-top: 20px;
+    }
+    .pdetails-container-s>p:nth-child(3){
+word-wrap: break-word;
+width: 80%;
+margin: auto;
+margin-bottom: 10px;
+margin-top: -15px;
+font-size: 10px;
+    }  
+    .pdetails-container>button{
+        margin: 0px 0px 0px 30px;
+        width: 70%;
+        height: 35px;
+    }
+    .heartBttn-wishlist{
+        position: relative;
+        right: 0cm;
+        top: -9cm;
+        font-size: 30px;
+        
+        
+    }
+}

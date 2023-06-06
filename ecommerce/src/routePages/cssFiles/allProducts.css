@@ -70,4 +70,150 @@
   }
 
 }
-/*end of design Tablet---------------------------------------------------------*/
+/*end of design Desktop---------------------------------------------------------*/
+@media screen and (min-width: 764px) and (max-width: 1023px){
+  .container-procuct-page{
+    display: flex;
+    flex-wrap: wrap;
+   }
+    .container-pCard{
+        
+        background-color:rgb(245, 238, 240);
+        margin: 20px 5px 5px 5px ;
+        padding: 10px;
+        height: 7cm;
+        width: 5cm;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px 1px gray;
+    }
+    .img-pCard{
+        width: 70%;
+        height: 60%;
+    
+    }
+    .pcard-h4 {
+        margin-bottom: 10px;
+        position: relative;
+        top: -14px;
+        font-size: 12px;
+      }
+      .container-pCard-s> p:nth-child(1) {
+        color: #696969;
+        position: relative;
+        top: -16px;
+        right: -5px;
+        font-size: 10px;
+        font-weight: 700;
+        
+      }
+      .container-pCard-s> p:nth-child(2){
+        font-size: 13px;
+        font-weight: 700;
+        color: green;
+        position: relative;
+        top: -15px;
+        
+      } 
+      .container-pCard-s> p:nth-child(3){
+        font-size: 13px;
+        font-weight: 700;
+        color:wheat;
+        background-color: green;
+        display: inline;
+        padding: 3px;
+        border-radius: 100%;
+        position: relative;
+        right: 90px;
+        bottom: 6.7cm;
+       
+      } 
+
+      
+  .heartBttn{
+    position: relative;
+    right: -2.3cm;
+    top: -7.9cm;
+    font-size: 25px;
+    
+  }
+  .pCard-bttn-cart{
+   position: relative;
+   top: -19px;
+   width: 100%;
+  }
+}
+/*end for tablet---------------------*/
+
+@media screen and (min-width: 0px) and (max-width: 763px){
+  .container-procuct-page{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+   }
+    .container-pCard{
+        
+        background-color:rgb(245, 238, 240);
+      margin: 10px 30% 10px 30%;
+        padding: 10px;
+        height: 7cm;
+        width: 5cm;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px 1px gray;
+    }
+    .img-pCard{
+        width: 70%;
+        height: 60%;
+    
+    }
+    .pcard-h4 {
+        margin-bottom: 10px;
+        position: relative;
+        top: -14px;
+        font-size: 12px;
+      }
+      .container-pCard-s> p:nth-child(1) {
+        color: #696969;
+        position: relative;
+        top: -16px;
+        right: -5px;
+        font-size: 10px;
+        font-weight: 700;
+        
+      }
+      .container-pCard-s> p:nth-child(2){
+        font-size: 13px;
+        font-weight: 700;
+        color: green;
+        position: relative;
+        top: -15px;
+        
+      } 
+      .container-pCard-s> p:nth-child(3){
+        font-size: 11px;
+        font-weight: 700;
+        color:wheat;
+        background-color: green;
+        display: inline;
+        padding: 3px;
+        border-radius: 100%;
+        position: relative;
+        right: 90px;
+        bottom: 6.7cm;
+       
+      } 
+
+      
+  .heartBttn{
+    position: relative;
+    right: -2.3cm;
+    top: -7.9cm;
+    font-size: 20px;
+    
+  }
+  .pCard-bttn-cart{
+   position: relative;
+   top: -19px;
+   width: 100%;
+  }
+}
+/*end for Mobile screens-----------------*/

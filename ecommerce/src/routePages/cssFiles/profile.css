@@ -1,0 +1,131 @@
+@media screen and (min-width:1024px){
+    #logoutBttn{
+        padding: 20px 50px 20px 50px;
+        margin-top: 40px;
+        font-size: larger;
+    }
+    .container-address {
+        width: 300px;
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px 1px gray;
+        margin-top: 50px;
+        
+        border: solid 0px;
+        background-color:rgb(245, 238, 240);
+        text-align: left;
+      }
+      
+      .container-address li {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f9dede;
+        border-radius: 4px;
+      }
+      
+      .container-address p {
+        margin: 5px 0;
+      }
+      
+      .container-address button {
+       position: relative;
+       left: 120px;
+      }
+      
+      
+      .container-address-highlight{
+        color: rgb(66, 65, 65);
+        font-size: 17.5px;
+      }
+      
+}
+/*end of desktop---------*/
+@media screen and (min-width:764px) and (max-width:1023px){
+  #logoutBttn{
+      padding: 20px 50px 20px 50px;
+      margin-top: 40px;
+      font-size: larger;
+  }
+  .container-address {
+      width: 300px;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 1px 1px 2px 1px gray;
+      margin-top: 50px;
+      
+      border: solid 0px;
+      background-color:rgb(245, 238, 240);
+      text-align: left;
+    }
+    
+    .container-address li {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9dede;
+      border-radius: 4px;
+    }
+    
+    .container-address p {
+      margin: 5px 0;
+    }
+    
+    .container-address button {
+     position: relative;
+     left: 120px;
+    }
+    
+    
+    .container-address-highlight{
+      color: rgb(66, 65, 65);
+      font-size: 17.5px;
+    }
+    
+}
+/*end of tablet---------*/
+@media screen and (min-width:0px) and (max-width:763px){
+  #logoutBttn{
+      padding: 20px 50px 20px 50px;
+      margin-top: 40px;
+      font-size: larger;
+  }
+  .container-address {
+      width: 300px;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 1px 1px 2px 1px gray;
+      margin-top: 50px;
+      
+      border: solid 0px;
+      background-color:rgb(245, 238, 240);
+      text-align: left;
+    }
+    
+    .container-address li {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9dede;
+      border-radius: 4px;
+    }
+    
+    .container-address p {
+      margin: 5px 0;
+    }
+    
+    .container-address button {
+     position: relative;
+     left: 120px;
+    }
+    
+    
+    .container-address-highlight{
+      color: rgb(66, 65, 65);
+      font-size: 17.5px;
+    }
+    
+}
+
+
+

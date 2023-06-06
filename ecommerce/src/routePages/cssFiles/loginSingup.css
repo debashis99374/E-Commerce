@@ -1,0 +1,107 @@
+@media screen and (min-width:1024px){
+    .login-signup-container {
+        width: 300px;
+        margin: 0 auto;
+      }
+      
+      .login-signup-container label {
+        display: block;
+        margin-bottom: 10px;
+        color: #525252;
+      }
+      
+      .login-signup-container input {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      
+      .login-signup-container p {
+        margin-top: 10px;
+      }
+      
+      .login-signup-container p a {
+        color: blue;
+      }
+      
+      .login-signup-container button[type="submit"] {
+       margin-top: 10px;
+       
+       
+      }
+      
+      
+}
+/*end for Desktop----------------*/
+@media screen and (min-width:764px) and (max-width:1023px){
+  .login-signup-container {
+      width: 300px;
+      margin: 0 auto;
+    }
+    
+    .login-signup-container label {
+      display: block;
+      margin-bottom: 10px;
+      color: #525252;
+    }
+    
+    .login-signup-container input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .login-signup-container p {
+      margin-top: 10px;
+    }
+    
+    .login-signup-container p a {
+      color: blue;
+    }
+    
+    .login-signup-container button[type="submit"] {
+     margin-top: 10px;
+     
+     
+    }
+    
+    
+}
+/*end for tablet----------------*/
+@media screen and (min-width:0px) and (max-width:763px){
+  .login-signup-container {
+      width: 300px;
+      margin: 0 auto;
+    }
+    
+    .login-signup-container label {
+      display: block;
+      margin-bottom: 10px;
+      color: #525252;
+    }
+    
+    .login-signup-container input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .login-signup-container p {
+      margin-top: 10px;
+    }
+    
+    .login-signup-container p a {
+      color: blue;
+    }
+    
+    .login-signup-container button[type="submit"] {
+     margin-top: 10px;
+     
+     
+    }
+    
+    
+}
